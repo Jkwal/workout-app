@@ -1,3 +1,5 @@
+import { Layout } from '../../layout/Layout.jsx'
+
 export const Profile = () => {
-	return <div>Profile</div>
+	return <Layout>Profile</Layout>
 }

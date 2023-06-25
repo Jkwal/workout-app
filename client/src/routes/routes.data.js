@@ -5,19 +5,20 @@ import { Profile } from '../components/screens/profile/Profile.jsx'
 
 export const routes = [
 	{
-		path: '/',
-		component: Home,
-		isAuth: false
-	},
-	{
 		path: '/auth',
 		component: Auth,
 		isAuth: false
 	},
 	{
+		path: '/',
+		component: Home,
+		isAuth: true
+	},
+
+	{
 		path: '/profile',
 		component: Profile,
-		isAuth: false
+		isAuth: true
 	},
 	{
 		path: '/new-workout',

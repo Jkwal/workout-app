@@ -1,11 +1,24 @@
 import cn from 'clsx'
-import { Link } from 'react-router-dom'
+import Cookies from 'js-cookie'
+import { Link, useNavigate } from 'react-router-dom'
+
+import { useAuth } from '../../../hooks/useAuth.js'
+
+import { TOKEN } from '../../../app.constants.js'
 
 import styles from './Hamburger.module.scss'
 import { menu } from './menu.data.js'
 
-export const Menu = ({ isShow }) => {
-	const handleLogout = () => {}
+export const Menu = ({ isShow, setIsShow }) => {
+	const { setIsAuth } = useAuth()
+
+	const navigate = useNavigate()
+	const logoutHandler = () => {
+		Cookies.remove(TOKEN)
+		setIsAuth(false)
+		setIsShow(false)
+		navigate('/auth')
+	}
 
 	return (
 		<nav
@@ -20,7 +33,7 @@ export const Menu = ({ isShow }) => {
 					</li>
 				))}
 				<li>
-					<button onClick={handleLogout}>Logout</button>
+					<button onClick={logoutHandler}>Logout</button>
 				</li>
 			</ul>
 		</nav>

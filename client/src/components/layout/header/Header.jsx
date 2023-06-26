@@ -16,24 +16,28 @@ export const Header = ({ backLink = '/' }) => {
 
 	return (
 		<header className={styles.header}>
-			{pathname !== '/' ? (
-				<button
-					onClick={() => {
-						navigate(isAuth ? backLink : '/auth')
-					}}
-				>
-					<IoMdArrowBack fill="#fff" fontSize={29} />
-				</button>
-			) : (
-				<button
-					onClick={() => {
-						navigate('/profile')
-					}}
-				>
-					<SlUser fill="#fff" fontSize={27} />
-				</button>
+			{isAuth && (
+				<>
+					{pathname !== '/' ? (
+						<button
+							onClick={() => {
+								navigate(isAuth ? backLink : '/auth')
+							}}
+						>
+							<IoMdArrowBack fill="#fff" fontSize={29} />
+						</button>
+					) : (
+						<button
+							onClick={() => {
+								navigate('/profile')
+							}}
+						>
+							<SlUser fill="#fff" fontSize={27} />
+						</button>
+					)}
+					{isAuth && <Hamburger />}
+				</>
 			)}
-			{isAuth && <Hamburger />}
 		</header>
 	)
 }

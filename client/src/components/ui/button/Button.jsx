@@ -2,7 +2,7 @@ import cn from 'clsx'
 
 import styles from './Button.module.scss'
 
-export const Button = ({ children, clickHandler, size = 'xl' }) => {
+export const Button = ({ children, clickHandler = null, size = 'xl' }) => {
 	return (
 		<div className={styles.wrapper}>
 			<button
